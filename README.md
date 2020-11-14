@@ -1,6 +1,6 @@
 # modpack_uploader
 
-Ce logiciel permet de mettre en ligne les mods necessaires pour distribuer un modpack Fabric a travers le [modpack_updater](https://github.com/lebonq/modpack_updater)
+Ce logiciel permet de mettre en ligne les mods necessaires pour distribuer un modpack  [Fabric](https://fabricmc.net/) a travers le [modpack_updater](https://github.com/lebonq/modpack_updater)
 
 **Necessite Java 8 au minimun**
 
