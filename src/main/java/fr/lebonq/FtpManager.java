@@ -34,14 +34,15 @@ public class FtpManager {
 			vChannel.connect();
 			ChannelSftp vSftpChannel = (ChannelSftp) vChannel;
 
-
-			try {
-				vSftpChannel.lstat(pRemotePath);//On essaye de lister dans le dossier
-				System.out.println(pRemotePath + " exists");
-			} catch (SftpException e) {//Si erreur c'est quil n'existe pas donc on le cree
-				System.out.println(pRemotePath+" not found");
-				System.out.println("Creating dir "+pRemotePath);
-				vSftpChannel.mkdir(pRemotePath);
+			if(!(pRemotePath == "")){
+				try {
+					vSftpChannel.lstat(pRemotePath);//On essaye de lister dans le dossier
+					System.out.println(pRemotePath + " exists");
+				} catch (SftpException e) {//Si erreur c'est quil n'existe pas donc on le cree
+					System.out.println(pRemotePath+" not found");
+					System.out.println("Creating dir "+pRemotePath);
+					vSftpChannel.mkdir(pRemotePath);
+				}
 			}
 
 			vSftpChannel.put(pLocalfile.getAbsolutePath(), pRemotePath + pLocalfile.getName());

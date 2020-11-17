@@ -21,7 +21,7 @@ public class App {
             e.printStackTrace();
             return;
         }
-
+        
         File vFolder = new File("mods_json");
         boolean vJsonFolder = vFolder.mkdir();// On cree le dossier mods_json
         if(!(vJsonFolder) && vFolder.exists()){//Si la creation du dossier a echoue et que le dossier existe alors on le vide de ses fichiers
@@ -49,6 +49,7 @@ public class App {
 
             FtpManager.upload(vCfg.host(),vCfg.username(), vCfg.password(),vCfg.port(),new File("php/mods_json/index.php"), vCfg.modsJsonRemoteDir());//Et on push les deux codes php pour crer le XML
             FtpManager.upload(vCfg.host(),vCfg.username(), vCfg.password(),vCfg.port(),new File("php/modpack_client/index.php"), vCfg.modsJarDir());
+            FtpManager.upload(vCfg.host(),vCfg.username(), vCfg.password(),vCfg.port(),new File("php/version.txt"), "");//on met le fichier version.txt dans la racine
 
 
         } catch (Exception e) {
